@@ -1,0 +1,15 @@
+{
+    "name": "xande/js-php-cart",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexandre Cardoso",
+            "email": "xandecar@hotmail.com"
+        }
+    ],
+    "require": {}
+}

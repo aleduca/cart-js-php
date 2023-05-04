@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+.add {
+  color: rgb(2, 255, 2);
+}
+
+.add:hover {
+  color: rgb(0, 71, 0)
+}
+
+.minus {
+  color: red;
+}
+
+.minus:hover {
+  color: rgb(141, 2, 2)
+}
+
+#total-products-in-cart {
+  margin-bottom: 20px;
+  background-color: aquamarine;
+  padding: 10px;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li img {
+  border: solid 1px #333;
+}
+
+.btn-add-to-cart {
+  cursor: pointer;
+}
+
+.btn-remove-from-cart {
+  cursor: pointer;
+}
