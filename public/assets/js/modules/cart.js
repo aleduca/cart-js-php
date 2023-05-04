@@ -11,21 +11,28 @@ const cart = new Cartclass;
 
 productsList.forEach((product) => {
   const productJson = JSON.parse(product.getAttribute("data-product"));
-  getProductQuantityAndPrice(productJson);
+  getTotalAndPrice(productJson);
 });
 
-function getProductQuantityAndPrice(product) {
-  const { qty, price } = cart.getProductQuantityAndPrice(product);
-    document.querySelector(
-      `.total-product-in-cart${product.id}`
-    ).textContent = qty;
-    document.querySelector(
-      `.total-product-price-in-cart${product.id}`
-  ).textContent = price;
-  
-  const sum = cart.getTotalQuantityAndPrice();
-  document.querySelector('#totalQuantity').textContent = sum.qty;
-  document.querySelector("#totalPrice").textContent = currency(sum.total);
+
+function getproductQuantityAndPrice(product) {
+   const { qty, price } = cart.getProductQuantityAndPrice(product);
+   document.querySelector(`.total-product-in-cart${product.id}`).textContent =
+     qty;
+   document.querySelector(
+     `.total-product-price-in-cart${product.id}`
+   ).textContent = price;
+}
+
+function getTotalInHeader() {
+    const sum = cart.getTotalQuantityAndPrice();
+    document.querySelector("#totalQuantity").textContent = sum.qty;
+    document.querySelector("#totalPrice").textContent = currency(sum.total);
+}
+
+function getTotalAndPrice(product) {
+  getproductQuantityAndPrice(product);
+  getTotalInHeader();
 }
 
 
@@ -33,7 +40,7 @@ btnsAddToCart.forEach(button => {
   button.addEventListener('click', () => {
     const product = JSON.parse(button.getAttribute('data-product'));
     cart.add(product);
-    getProductQuantityAndPrice(product);
+    getTotalAndPrice(product);
   })
 })
 
@@ -41,7 +48,7 @@ btnsRenoveFromCart.forEach((button) => {
   button.addEventListener("click", () => {
     const product = JSON.parse(button.getAttribute("data-product"));
     cart.remove(product);
-     getProductQuantityAndPrice(product);
+     getTotalAndPrice(product);
   });
 });
 
